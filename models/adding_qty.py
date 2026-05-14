@@ -27,6 +27,9 @@ class SaleOrderLine(models.Model):
                         'attempted_qty': line.product_uom_qty,
                         'allowed_qty': product.max_qty_per_invoice,
                     })
-                    raise ValidationError(
-                        f"Warning: You exceeded max qty ({product.max_qty_per_invoice}) but you are allowed as manager."
-                    )
+                    return {
+                    'warning': {
+                        'title': 'Warning',
+                        'message': f'You exceeded max qty ({product.max_qty_per_invoice}) but you are allowed as manager.'
+                    }
+                }
