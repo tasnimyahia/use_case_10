@@ -1,0 +1,50 @@
+<odoo>
+    <record id="medicine_feature_action_id" model="ir.actions.act_window">
+        <field name="name">Pharmacy</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="medicine_feature_view_id" model="ir.ui.view">
+        <field name="name">Pharmacy</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+                <field name="classification"/>
+        </xpath>
+        <!-- <xpath expr="//field[@name='available_in_pos']" position="after">
+                <group>
+                    <field name="is_medicine"/>
+                </group>
+            </xpath> -->
+        <xpath expr="//field[@name='list_price']" position="after">
+            <group groups="pharmacy_application.manager_group_id">
+                <field name="max_qty_per_invoice" invisible="classification != 'is_medicine'"/>
+                
+            </group>  
+            </xpath>
+            
+        </field>
+    </record>
+
+    <!-- <record id="view_product_uc10" model="ir.ui.view">
+        <field name="name">product.template.form.uc10</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='purchase_ok']" position="after">
+                <group>
+                    <field name="is_medicine"/>
+                </group>
+            </xpath>
+        <notebook position="inside">
+            <page string="Pharmacy" invisible="not is_medicine">
+            <group>
+                <field name="max_qty_per_invoice"/>
+                
+            </group>
+            </page>
+        </notebook>
+        </field>
+    </record> -->
+</odoo>
