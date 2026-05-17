@@ -9,3 +9,4 @@ class MaxQtyLog(models.Model):
     attempted_qty = fields.Float("Attempted Qty")
     allowed_qty = fields.Float("Allowed Qty")
     date = fields.Datetime("Date", default=fields.Datetime.now)
+    note = fields.Char("Note")

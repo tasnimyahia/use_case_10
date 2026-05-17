@@ -9,6 +9,7 @@
                 <field name="attempted_qty"/>
                 <field name="allowed_qty"/>
                 <field name="date"/>
+                <field name="note"/>
             </list>
         </field>
     </record>

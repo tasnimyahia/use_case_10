@@ -19,7 +19,17 @@
         <xpath expr="//field[@name='product_tooltip']" position="after">
                 <!-- <label for="max_qty_per_invoice" class="oe_inline" groups="pharmacy_application.manager_group_id"/> -->
                 <field name="max_qty_per_invoice" string="Max Qauntitiy invoice" class="oe_inline" invisible="classification != 'is_medicine'" groups="pharmacy_application.manager_group_id"/>
-                
+                <field name="low_stock_limit"
+                    string="Low Stock Limit"
+                    class="oe_inline"
+                    invisible="classification != 'is_medicine'"
+                    groups="pharmacy_application.manager_group_id"/>
+
+                <field name="max_qty_when_low"
+                        string="Max Qty When Low"
+                        class="oe_inline"
+                        invisible="classification != 'is_medicine'"
+                        groups="pharmacy_application.manager_group_id"/>
 
             </xpath>
             
